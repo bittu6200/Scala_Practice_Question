@@ -24,32 +24,28 @@ def callByName(x: => Int): Unit = {
 val value = 42
 callByName(value)
 //##############################################3
- //call by value
- def callByValueExample(x: Int): Unit = {
-   println("Inside callByValueExample method")
-   println("x = " + x)  // o/p :6
-   println("x = " + x) // The value of 'x' remains the same o/p : p
- }
-
-def  incrementAndGetByValue (x: Int): Int = {
-  println("Inside incrementAndGetByValue method")
-  x + 1
-}
-
-val value =  incrementAndGetByValue (5)
-callByValueExample(value)
+  //call by value
+  def callByValue(x: Long): Unit = {
+    println("Inside callByValue")
+    println(s"x = $x")
+    println(s"x = $x") // x is the same value, since it's passed by value
+  }
 
 //call by name
-def callByNameExample(x: => Int): Unit = {
-  println("Inside callByNameExample method")
-  println("x = " + x) // The value of 'x' is evaluated when referenced = o/p : 6
-  println("x = " + x) // The value of 'x' is evaluated again when referenced o/p : 7
-}
+  def callByName(x: => Long): Unit = {
+    println("Inside callByName")
+    println(s"x = $x") // x is re-evaluated every time it's used
+    println(s"x = $x") // x is re-evaluated again
+  }
 
-def incrementAndGetByName(x: => Int): Int = {
-  println("Inside incrementAndGetByName method")
-  x + 1
-}
+ // current time method
+  def currentTime(): Long = {
+    println("Getting current time")
+    System.currentTimeMillis()
+  }
 
-val value = incrementAndGetByName(5)
-callByNameExample(value)
+  println("Call by value example:")
+  callByValue(currentTime()) 
+
+  println("\nCall by name example:")
+  println(callByName(currentTime())) 
