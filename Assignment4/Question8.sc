@@ -21,3 +21,12 @@ def flattenNestedList[A](nestedList: List[List[A]]): List[A] = {
 val inputList = List(List(1, 2, 3, 4), List(3, 4, 5), Nil, List(11, 34, 6))
 val flattenedList = flattenNestedList(inputList)
 println(flattenedList)
+
+
+
+///////////////////////////////////////////////////////////////
+
+val listoflist=List(List(1,2,3,4),List(3,4,5), Nil, List(11,34,6))
+val f=(f:List[Int])=>f
+val usingMap=listoflist.map(f).flatten
+val usingFlatMap=listoflist.flatMap(f)
